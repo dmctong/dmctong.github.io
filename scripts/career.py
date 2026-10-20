@@ -65,7 +65,8 @@ def load(path=ROOT / "career.yaml"):
 
 
 def clean(s):
-    return " ".join(str(s).split())
+    """Collapse whitespace; forbid line breaks inside slashed terms like ISoP/ACCP."""
+    return re.sub(r"(?<=\w)/(?=\w)", "/\u2060", " ".join(str(s).split()))
 
 
 def t(text, **style):

@@ -45,7 +45,7 @@ summary:
   default: >-
     Pharmacometrician and data scientist who pioneered hybrid machine
     learning/population PK/PD methods for precision dosing, with models deployed
-    across 1,000+ U.S. hospitals and used to dose over 1,000,000 patients.
+    across 1,000+ U.S. hospitals.
     Developed the first population PK model to pool multiple aminoglycosides
     across the human lifespan. Led cross-institutional research with Memorial
     Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
@@ -93,7 +93,7 @@ positions:
           Identified and corrected a systematic serum creatinine rounding bias in
           elderly patients that degraded renal function estimation and
           vancomycin/aminoglycoside dosing accuracy; the corrected model is now
-          deployed in routine clinical care, applied to over 1,000,000 patients
+          deployed in routine clinical care
       - id: crrt-vanc-model
         date: 2026
         tags: [pharmacometrics, rwe, clinical-impact, antimicrobials]
@@ -525,8 +525,7 @@ service:
         text: >-
           Serve as the Clinical Pharmacometrics SIG's representative to the ACoP
           abstract review committee, evaluating submitted abstracts for scientific
-          merit and selecting recipients of the conference's pharmacometrics
-          trainee awards
+          merit and selecting recipients of the conference's trainee awards
       - id: acop-about
         text: ACoP is the premier annual scientific meeting in the field
 
