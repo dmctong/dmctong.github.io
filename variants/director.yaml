@@ -43,7 +43,5 @@ sections:
     max_authors: 4
   - skills
   - id: education
-    max_bullets: 0
     thesis: false
-  - id: awards
-    max_bullets: 0
+  - awards

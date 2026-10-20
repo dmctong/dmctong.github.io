@@ -563,12 +563,13 @@ awards:
 
 # ------------------------------------------------------------------- skills
 skills:
+  # Keep each group to one resume line (~95 characters including the label).
   - group: Pharmacometrics
     tags: [pharmacometrics]
-    items: [population PK/PD modeling, model-informed precision dosing, NONMEM, simulation-based trial design]
-  - group: Machine Learning
+    items: [population PK/PD modeling, model-informed precision dosing, simulation-based trial design]
+  - group: Machine Learning & AI
     tags: [ml]
-    items: [hybrid ML/PK/PD modeling, LLM agents, agentic AI validation (GxP), XGBoost, deep learning]
-  - group: Programming
+    items: [hybrid ML/PK/PD modeling, LLM agents, agentic AI validation (GxP), deep learning]
+  - group: Software
     tags: []
-    items: [R (tidyverse, Shiny), Python (pandas, scikit-learn), Docker, git]
+    items: [NONMEM, R (tidyverse, Shiny), Python (pandas, scikit-learn, XGBoost), Docker, git]
