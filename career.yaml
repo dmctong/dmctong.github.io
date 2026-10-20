@@ -51,6 +51,7 @@ summary:
     Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
     Brigham and Women's Hospital. {N_pubs} peer-reviewed publications translating
     real-world evidence and hybrid ML/PK modeling into clinical impact.
+    Chair-elect of the ISoP/ACCP Clinical Pharmacometrics Special Interest Group.
   # Placeholders are computed at build time so counts never drift:
   #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range}
 
