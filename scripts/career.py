@@ -303,8 +303,12 @@ def build_section(sid, opts, data, c):
 
     if sid == "publications":
         pubs = data["publications"]
-        if opts.get("select") == "featured":
-            pubs = [p for p in pubs if p.get("featured")]
+        select = opts.get("select", [])
+        select = [select] if isinstance(select, str) else select
+        if select:  # union of: featured, first_author
+            pubs = [p for p in pubs
+                    if ("featured" in select and p.get("featured"))
+                    or ("first_author" in select and p["authors"][:1] == [me])]
         if opts.get("include_tags"):
             pubs = [p for p in pubs if set(opts["include_tags"]) & set(p.get("tags", []))]
         pubs = sorted(pubs, key=lambda p: (p["year"], p.get("month", 0)), reverse=True)

@@ -10,7 +10,7 @@
 #   tag_priority                sort bullets by first matching tag, ties keep file order
 #   max_bullets                 cap per position
 #   condensed                   position ids rendered as a single line, no bullets
-# Publication/presentation options: select: featured, include_tags, max_authors,
+# Publication/presentation options: select (featured and/or first_author), include_tags, max_authors,
 #   max_items, numbered, show_ids, note (supports {N_pubs}-style placeholders)
 
 max_pages: 2
@@ -29,7 +29,7 @@ sections:
     highlight: 3
   - id: publications
     title: Selected Publications
-    select: featured
+    select: [featured, first_author]
     max_authors: 4
     note: "{N_pubs} peer-reviewed publications; full list in CV."
   - skills
