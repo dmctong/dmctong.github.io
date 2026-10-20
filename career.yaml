@@ -488,7 +488,8 @@ service:
   - id: clinpmx-sig
     org: ISoP/ACCP Clinical Pharmacometrics Special Interest Group
     roles:
-      - { title: Vice-Chair,          start: 2026-01, end: present }
+      - { title: Chair-elect,          start: 2026-10, end: present }
+      - { title: Vice-Chair,           start: 2026-01, end: 2026-10 }
       - { title: Scientific Secretary, start: 2025-01, end: 2025-12 }
     tags: [leadership, service]
     bullets:
