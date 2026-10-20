@@ -10,8 +10,9 @@
 #   tag_priority                sort bullets by first matching tag, ties keep file order
 #   max_bullets                 cap per position
 #   condensed                   position ids rendered as a single line, no bullets
-# Publication/presentation options: select (featured and/or first_author), include_tags, max_authors,
-#   max_items, numbered, show_ids, note (supports {N_pubs}-style placeholders)
+# Publication/presentation options: select (featured and/or first_author; omit = all),
+#   include_tags, exclude_ids, max_authors, max_items, numbered, show_ids,
+#   note (supports {N_pubs}-style placeholders)
 
 max_pages: 2
 
@@ -30,8 +31,13 @@ sections:
   - id: publications
     title: Selected Publications
     select: [featured, first_author]
+    exclude_ids: [genetepi-2020-power]
     max_authors: 4
     note: "{N_pubs} peer-reviewed publications; full list in CV."
+  - id: presentations
+    title: Selected Presentations
+    max_items: 4
+    max_authors: 4
   - skills
   - education
   - awards

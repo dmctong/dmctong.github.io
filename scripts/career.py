@@ -311,6 +311,7 @@ def build_section(sid, opts, data, c):
                     or ("first_author" in select and p["authors"][:1] == [me])]
         if opts.get("include_tags"):
             pubs = [p for p in pubs if set(opts["include_tags"]) & set(p.get("tags", []))]
+        pubs = [p for p in pubs if p["id"] not in opts.get("exclude_ids", [])]
         pubs = sorted(pubs, key=lambda p: (p["year"], p.get("month", 0)), reverse=True)
         items = [cite_publication(p, me, opts.get("max_authors"), opts.get("show_ids", False)) for p in pubs]
         note = [t(fill(opts["note"], c), italic=True)] if opts.get("note") else None
@@ -321,6 +322,7 @@ def build_section(sid, opts, data, c):
         talks = sorted(data["presentations"], key=lambda x: sort_key(x["date"]), reverse=True)
         if opts.get("include_tags"):
             talks = [x for x in talks if set(opts["include_tags"]) & set(x.get("tags", []))]
+        talks = [x for x in talks if x["id"] not in opts.get("exclude_ids", [])]
         if opts.get("max_items"):
             talks = talks[: opts["max_items"]]
         items = [cite_presentation(x, me, opts.get("max_authors")) for x in talks]
