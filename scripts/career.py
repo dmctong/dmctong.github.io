@@ -261,7 +261,7 @@ def build_section(sid, opts, data, c):
     if sid == "education":
         entries = []
         for e in data["education"]:
-            bullets = [[t(clean(n))] for n in e.get("notes", [])]
+            bullets = [[t(clean(n))] for n in e.get("notes", [])][: opts.get("max_bullets")]
             if e.get("thesis") and opts.get("thesis", True):
                 bullets.append([t("Thesis: "), t(clean(e["thesis"]), italic=True)])
             entries.append({"lines": [{"left": [t(e["degree"], bold=True)], "right": fmt_date(e["date"])},
@@ -273,7 +273,7 @@ def build_section(sid, opts, data, c):
         entries = [{"lines": [{"left": [t(a["name"], bold=True)], "right": str(a["year"])},
                               {"left": [t(a["org"])], "right": ""}],
                     "description": None,
-                    "bullets": [[t(clean(a["description"]))]] if a.get("description") else []}
+                    "bullets": [[t(clean(a["description"]))]] if a.get("description") and opts.get("max_bullets", 1) else []}
                    for a in data["awards"]]
         return {**sec, "kind": "entries", "entries": entries}
 

@@ -26,6 +26,7 @@ sections:
     max_bullets: 8
     condensed: [insight, ucsf]
   - id: service
+    exclude_ids: [sig-about, sig-mission]   # org line already says what the SIG is
     max_bullets: 1
   - id: peer_review
     style: line
@@ -41,5 +42,8 @@ sections:
     max_items: 4
     max_authors: 4
   - skills
-  - education
-  - awards
+  - id: education
+    max_bullets: 0
+    thesis: false
+  - id: awards
+    max_bullets: 0

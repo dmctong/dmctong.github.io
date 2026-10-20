@@ -70,11 +70,12 @@ positions:
     bullets:
       - id: astra-validation
         date: 2026
-        tags: [llm, ml, clinical-impact]
+        tags: [leadership, llm, ml, clinical-impact]
         text: >-
-          Validating InsightRX Astra, the company's agentic AI workflow for
-          clinical pharmacology, through human testing and programmatic
-          validation methods for nondeterministic AI outputs
+          Designed the validation approach for InsightRX Astra, an agentic AI
+          workflow for clinical pharmacology: human testing plus programmatic
+          validation of nondeterministic AI outputs, intended to run on every
+          release for GxP compliance
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
@@ -502,12 +503,14 @@ service:
       - { title: Scientific Secretary, start: 2025-01, end: 2025-12 }
     tags: [leadership, service]
     bullets:
-      - text: >-
+      - id: sig-about
+        text: >-
           A joint special interest group of the International Society of
           Pharmacometrics (ISoP) and the American College of Clinical Pharmacology
           (ACCP), the field's principal professional societies, focused on
           advancing pharmacometrics in patient care
-      - text: >-
+      - id: sig-mission
+        text: >-
           Promote application of pharmacometrics to direct patient care and foster
           an international group of scientists and clinicians across therapeutic
           areas
@@ -518,12 +521,14 @@ service:
     years: [2025, 2026]
     tags: [leadership, service]
     bullets:
-      - text: >-
+      - id: acop-role
+        text: >-
           Serve as the Clinical Pharmacometrics SIG's representative to the ACoP
           abstract review committee, evaluating submitted abstracts for scientific
           merit and selecting recipients of the conference's pharmacometrics
           trainee awards
-      - text: ACoP is the premier annual scientific meeting in the field
+      - id: acop-about
+        text: ACoP is the premier annual scientific meeting in the field
 
 peer_review:
   # Counts are computed by templates: journals = len(entries), reviews = sum(reviews).
@@ -563,7 +568,7 @@ skills:
     items: [population PK/PD modeling, model-informed precision dosing, NONMEM, simulation-based trial design]
   - group: Machine Learning
     tags: [ml]
-    items: [hybrid ML/PK/PD modeling, LLM agents, XGBoost, deep learning]
+    items: [hybrid ML/PK/PD modeling, LLM agents, agentic AI validation (GxP), XGBoost, deep learning]
   - group: Programming
     tags: []
     items: [R (tidyverse, Shiny), Python (pandas, scikit-learn), Docker, git]
