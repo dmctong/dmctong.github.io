@@ -216,6 +216,9 @@ def select_bullets(bullets, opts):
         rank = lambda b: min((priority.index(tg) for tg in b.get("tags", []) if tg in priority),
                              default=len(priority))
         keep.sort(key=rank)  # stable: ties keep file order
+    pins = opts.get("pin_ids", [])
+    if pins:  # pinned bullets go first, in the order listed
+        keep.sort(key=lambda b: pins.index(b["id"]) if b.get("id") in pins else len(pins))
     if opts.get("max_bullets"):
         keep = keep[: opts["max_bullets"]]
     return keep

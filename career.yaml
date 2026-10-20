@@ -68,6 +68,13 @@ positions:
       I lead pharmacometric and machine learning model development for a
       precision-dosing platform deployed across 1,000+ U.S. hospitals.
     bullets:
+      - id: astra-validation
+        date: 2026
+        tags: [llm, ml, clinical-impact]
+        text: >-
+          Validating InsightRX Astra, the company's agentic AI workflow for
+          clinical pharmacology, through human testing and programmatic
+          validation methods for nondeterministic AI outputs
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
