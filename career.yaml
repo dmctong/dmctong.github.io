@@ -379,7 +379,7 @@ presentations:
     location: Rennes, France
     date: 2026-09
     status: given
-    presenter: Faldasz JD             # set when a co-author gave the talk
+    presenter: Hughes JH              # set when a co-author gave the talk
     pubs: [jcph-2026-aminoglycosides]
     tags: [pharmacometrics, antimicrobials, communication]
   - id: acop-2025-vori
