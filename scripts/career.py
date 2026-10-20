@@ -194,6 +194,8 @@ def cite_presentation(x, me, max_authors=None):
         runs.append(t("(upcoming) ", italic=True))
     runs += author_runs(x["authors"], me, max_authors)
     title = end_sentence(x["title"]) if x.get("title") else ""
+    if x.get("presenter"):  # someone else gave the talk
+        kind = f"{kind}; presented by {x['presenter']}" if kind else f"Presented by {x['presenter']}"
     if kind:
         title = (title[:-1] + f" ({kind})." if title else f"{kind}.")
     runs.append(t(". " + title + " "))
