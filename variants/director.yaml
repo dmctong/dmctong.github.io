@@ -16,6 +16,7 @@
 #   note (supports {N_pubs}-style placeholders)
 
 max_pages: 2
+contacts: [location, email, website, linkedin, orcid]   # omit to show all
 
 sections:
   - summary

@@ -38,7 +38,7 @@ person:
     orcid: 0000-0001-7396-7958
     google_scholar: ~     # TODO 2: Scholar user id (optional)
     github: dmctong
-    website: ~            # filled once the site is deployed
+    website: https://dmctong.github.io
 
 summary:
   # Variants pick a key; `default` is used when none is specified.
@@ -73,9 +73,9 @@ positions:
         tags: [leadership, llm, ml, clinical-impact]
         text: >-
           Designed the validation approach for InsightRX Astra, an agentic AI
-          workflow for clinical pharmacology: human testing plus programmatic
-          validation of nondeterministic AI outputs, intended to run on every
-          release for GxP compliance
+          clinical pharmacology workflow: human testing plus programmatic
+          validation of nondeterministic outputs, intended to run each release for
+          GxP compliance
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]

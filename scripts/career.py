@@ -47,7 +47,8 @@ TITLES = {
 }
 
 # The CV is "everything"; the site is everything, ordered for the web.
-CV = {"sections": [
+PDF_CONTACTS = ["location", "email", "website", "linkedin", "orcid"]  # site links GitHub
+CV = {"contacts": PDF_CONTACTS, "sections": [
     "summary", "experience", "service", {"id": "peer_review", "style": "list"}, "skills",
     "education", {"id": "publications", "numbered": True, "show_ids": True},
     "presentations", "awards"]}
@@ -337,11 +338,14 @@ def build_section(sid, opts, data, c):
     raise SystemExit(f"unknown section: {sid}")
 
 
-def person(data):
-    p, c = data["person"], data["person"]["contact"]
+def person(data, keys=None):
+    """keys: contact fields to show, in fixed order; None shows all."""
+    p = data["person"]
+    c = {k: v for k, v in p["contact"].items() if keys is None or k in keys}
+    location = p.get("location") if keys is None or "location" in keys else None
     contacts = []
-    if p.get("location"):
-        contacts.append(t(p["location"]))
+    if location:
+        contacts.append(t(location))
     if c.get("email"):
         contacts.append(t(c["email"], link=f"mailto:{c['email']}"))
     if c.get("website"):
@@ -364,7 +368,7 @@ def resolve(config, data):
     for s in config["sections"]:
         sid, opts = (s, {}) if isinstance(s, str) else (s["id"], s)
         sections.append(build_section(sid, opts, data, c))
-    return {"person": person(data), "generated": f"{TODAY.strftime('%B')} {TODAY.year}",
+    return {"person": person(data, config.get("contacts")), "generated": f"{TODAY.strftime('%B')} {TODAY.year}",
             "max_pages": config.get("max_pages"), "downloads": config.get("downloads", []),
             "sections": sections}
 
