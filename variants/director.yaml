@@ -1,0 +1,37 @@
+# Director-level resume: leadership and clinical impact first, 2 pages max.
+#
+# Each entry in `sections` is a section id (defaults) or a mapping with options.
+# Section ids: summary, experience, service, peer_review, publications,
+#              presentations, skills, education, awards
+#
+# Bullet options (experience, service):
+#   include_tags / include_ids  keep bullets matching any tag or id (omit = keep all)
+#   exclude_ids                 drop specific bullets
+#   tag_priority                sort bullets by first matching tag, ties keep file order
+#   max_bullets                 cap per position
+#   condensed                   position ids rendered as a single line, no bullets
+# Publication/presentation options: select: featured, include_tags, max_authors,
+#   max_items, numbered, show_ids, note (supports {N_pubs}-style placeholders)
+
+max_pages: 2
+
+sections:
+  - summary
+  - id: experience
+    include_tags: [leadership, clinical-impact, collaboration, industry, ml, llm]
+    tag_priority: [leadership, clinical-impact, collaboration, industry]
+    max_bullets: 7
+    condensed: [insight, ucsf]
+  - id: service
+    max_bullets: 1
+  - id: peer_review
+    style: line
+    highlight: 3
+  - id: publications
+    title: Selected Publications
+    select: featured
+    max_authors: 4
+    note: "{N_pubs} peer-reviewed publications; full list in CV."
+  - skills
+  - education
+  - awards

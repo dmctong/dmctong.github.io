@@ -1,0 +1,8 @@
+build/
+.venv/
+__pycache__/
+.DS_Store
+
+# Anything private stays out of this public repo by naming convention.
+*.private.*
+private/

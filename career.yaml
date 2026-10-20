@@ -1,0 +1,559 @@
+# career.yaml — single source of truth for resume, CV, and website.
+# PUBLIC FILE: no salary, applications, recruiter notes, phone, or street address.
+#
+# Conventions
+#   dates:   "YYYY-MM" or "YYYY"; end: present for ongoing
+#   ids:     short stable slugs; variants and cross-links refer to these
+#   tags:    drawn from the vocabulary below; variants filter on them
+#   authors: "Tong DMH" is auto-bolded by templates
+#   TODO comments mark open questions
+
+tag_vocabulary:
+  leadership:      led people, projects, collaborations, or committees
+  ml:              machine learning / AI methods
+  llm:             LLMs and agentic tooling
+  pharmacometrics: population PK/PD, MIPD, NONMEM, simulation
+  clinical-impact: deployed or changed real-world patient care
+  rwe:             real-world evidence / routine clinical data at scale
+  collaboration:   cross-institutional or industry partnership
+  industry:        pharma / drug development facing
+  communication:   presenting to decision-makers, writing, teaching
+  pediatrics:      neonatal / pediatric populations
+  antimicrobials:  vancomycin, aminoglycosides, antifungals
+  oncology:        chemotherapy, conditioning regimens, neutropenia
+  genomics:        statistical / computational genetics
+  statistics:      study design, power, inference
+  service:         professional society and community service
+
+# ---------------------------------------------------------------- identity
+person:
+  name: Dominic Tong
+  credentials: Ph.D.
+  citation_name: Tong DMH
+  headline: Principal Bioengineer Data Scientist | Pharmacometrics & Machine Learning
+  location: Seattle, WA
+  contact:
+    email: dominic.tong.mail@gmail.com
+    linkedin: dmctong
+    orcid: 0000-0001-7396-7958
+    google_scholar: ~     # TODO 2: Scholar user id (optional)
+    github: dmctong
+    website: ~            # filled once the site is deployed
+
+summary:
+  # Variants pick a key; `default` is used when none is specified.
+  default: >-
+    Pharmacometrician and data scientist who pioneered hybrid machine
+    learning/population PK/PD methods for precision dosing, with models deployed
+    across 1,000+ U.S. hospitals and used to dose over 1,000,000 patients.
+    Developed the first population PK model to pool multiple aminoglycosides
+    across the human lifespan. Led cross-institutional research with Memorial
+    Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
+    Brigham and Women's Hospital. {N_pubs} peer-reviewed publications translating
+    real-world evidence and hybrid ML/PK modeling into clinical impact.
+  # Placeholders are computed at build time so counts never drift:
+  #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range}
+
+# --------------------------------------------------------------- experience
+positions:
+  - id: insightrx
+    org: InsightRX
+    location: San Francisco, CA / remote
+    roles:
+      - { title: Principal Bioengineer Data Scientist, start: 2025-01, end: present }
+      - { title: Senior Bioengineer Data Scientist,    start: 2020-11, end: 2025-01 }
+      - { title: Bioengineer Data Scientist,           start: 2020-01, end: 2020-11 }
+    description: >-
+      I lead pharmacometric and machine learning model development for a
+      precision-dosing platform deployed across 1,000+ U.S. hospitals.
+    bullets:
+      - id: vanc-model-switch
+        date: 2026
+        tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
+        pubs: [jacamr-2026-vanc-switch]
+        text: >-
+          Led scientific direction and a large-scale quasi-experimental study
+          across 90,295 patients in 19 hospital systems, demonstrating that
+          pharmacokinetic model selection meaningfully improves vancomycin AUC
+          target attainment and reduces AKI rates in precision dosing contexts
+      - id: scr-rounding
+        date: 2021
+        tags: [pharmacometrics, clinical-impact, rwe, antimicrobials]
+        pubs: [tdm-2021-age-adjusted-scr]
+        text: >-
+          Identified and corrected a systematic serum creatinine rounding bias in
+          elderly patients that degraded renal function estimation and
+          vancomycin/aminoglycoside dosing accuracy; the corrected model is now
+          deployed in routine clinical care, applied to over 1,000,000 patients
+      - id: crrt-vanc-model
+        date: 2026
+        tags: [pharmacometrics, rwe, clinical-impact, antimicrobials]
+        pubs: [tdm-2026-crrt-vanc]
+        text: >-
+          Developed and validated a novel vancomycin population PK model for
+          critically ill patients on continuous renal replacement therapy using
+          real-world data from 2,409 patients across 91 sites, outperforming five
+          published models in predictive accuracy
+      - id: msk-neutropenia-ml
+        date: 2023
+        tags: [leadership, ml, collaboration, oncology, pharmacometrics]
+        pubs: [psp-2023-neutropenia]
+        text: >-
+          Led ML development on a cross-institutional collaboration with Memorial
+          Sloan Kettering — feature engineering, algorithm selection, and
+          evaluation — producing a hybrid PK/PD-ML model that improved grade 3–4
+          neutropenia prediction precision from 47% to 61% across 9,121 patients
+      - id: conditioning-regimen-sim
+        date: 2022
+        tags: [leadership, pharmacometrics, industry, communication, oncology]
+        text: >-
+          Directed simulation-based analysis identifying precision dosing failures
+          in a pharma client's conditioning regimen; presented recommendations
+          directly to clinical decision-makers, resulting in a redesigned trial
+          dosing strategy
+      - id: llm-nonmem-agent
+        date: 2025
+        tags: [llm, ml, industry, collaboration, pharmacometrics]
+        text: >-
+          Prototyped an LLM agent-based tool (GPT-4o) to assist pharmacometricians
+          in NONMEM model development, then partnered with Pfizer to evaluate a
+          more advanced version of this tool for pharmacometric model development
+          against a manual workflow
+      - id: peds-vori
+        date: 2025
+        tags: [leadership, collaboration, pharmacometrics, pediatrics, antimicrobials]
+        talks: [acop-2025-vori]
+        text: >-
+          Led a tri-institutional collaboration with Lucile Packard Children's
+          Hospital (Stanford) and Children's Hospital of Philadelphia to develop a
+          pediatric voriconazole population PK model and optimized sampling
+          strategies for model-informed precision dosing
+
+  - id: insight
+    org: Insight Data Science
+    location: San Francisco, CA
+    roles:
+      - { title: Health Data Science Fellow, start: 2019-06, end: 2019-12 }
+    bullets:
+      - id: dili-svm
+        date: 2019
+        tags: [ml]
+        text: >-
+          Built a support vector machine classifier to predict the toxicity of
+          1,036 drugs in the FDA's Drug Induced Liver Injury data set using
+          scikit-learn and pandas with 77% accuracy
+
+  - id: ucsf
+    org: University of California, San Francisco
+    location: San Francisco, CA
+    roles:
+      - { title: Doctoral Researcher, start: 2014-08, end: 2019-06 }
+    bullets:
+      - id: gwas-sim-model
+        date: ~
+        tags: [genomics, statistics]
+        pubs: [genetepi-2020-power]
+        text: >-
+          Developed a novel computational model that mimics complex diseases based
+          on genetic data and evolutionary parameters to enable GWAS performance
+          comparisons
+      - id: rare-variant-gap
+        date: ~
+        tags: [genomics, statistics]
+        text: >-
+          Discovered that methods for finding rare mutations causing disease are
+          missing a vast amount of causal mutations when rare mutations explain
+          most of the disease
+      - id: imputation-power
+        date: ~
+        tags: [genomics, statistics]
+        text: >-
+          Demonstrated that using inexpensive genotyping arrays and imputation
+          detects 90% of the associations identified by the much more expensive
+          whole genome sequencing, potentially increasing sample size by 10-fold
+          in any association study
+
+# ---------------------------------------------------------------- education
+education:
+  - id: phd
+    degree: Ph.D. in Bioengineering
+    institution: University of California, Berkeley – UC San Francisco
+    date: 2019-06
+    notes:
+      - Thesis in computational human genetics with work in machine learning and statistics
+    thesis: ~   # TODO 4: thesis title + advisor (Hernandez RD?) for the CV
+  - id: basc
+    degree: Bachelor of Applied Science in Engineering Physics (Electrical option)
+    institution: University of British Columbia
+    date: 2014-05
+    notes:
+      - Combines electrical engineering, applied physics, and emphasis on innovation
+
+# ------------------------------------------------------------- publications
+# Newest first. `source: manual` entries are never overwritten by ORCID sync;
+# sync matches on DOI, then normalized title.
+publications:
+  - id: jcph-2026-aminoglycosides
+    authors: [Tong DMH, Faldasz JD, Keizer RJ, Hughes JH]
+    title: >-
+      One model to dose them all: a population pharmacokinetic model for multiple
+      aminoglycosides across the human lifespan
+    journal: J Clin Pharmacol
+    year: 2026
+    month: 9
+    volume: 66
+    issue: 9
+    doi: 10.1002/jcph.70231
+    status: published
+    tags: [pharmacometrics, antimicrobials, pediatrics, rwe]
+    featured: true
+    source: manual
+  - id: jacamr-2026-vanc-switch
+    authors: [Tong DMH, Brooks JT, Keizer RJ, Hughes JH]
+    title: >-
+      Vancomycin target attainment improved following population pharmacokinetic
+      model switch: a large-scale quasi-experimental study of precision dosing
+    journal: JAC Antimicrob Resist
+    year: 2026
+    month: 2
+    volume: 8
+    issue: 1
+    pages: dlag016
+    doi: 10.1093/jacamr/dlag016
+    pmid: 41710913
+    pmcid: PMC12910383
+    status: published
+    tags: [pharmacometrics, clinical-impact, rwe, antimicrobials]
+    featured: true
+    source: manual
+  - id: tdm-2026-crrt-vanc
+    authors: [Tong DMH, Keizer RJ, Hughes JH]
+    title: >-
+      Improved prediction of vancomycin pharmacokinetics in patients receiving
+      continuous renal replacement therapy using a novel population model
+      validated with real-world data
+    journal: Ther Drug Monit
+    year: 2026
+    volume: 48
+    doi: 10.1097/FTD.0000000000001432
+    status: published
+    tags: [pharmacometrics, rwe, antimicrobials]
+    source: manual
+  - id: psp-2025-model-averaging
+    authors: [van Os W, O'Jeanson A, Troisi C, Liu C, Brooks JT, Hughes JH, Tong DMH, Keizer RJ]
+    title: >-
+      Machine learning–based model selection and averaging outperform
+      single-model approaches for a priori vancomycin precision dosing
+    journal: CPT Pharmacometrics Syst Pharmacol
+    year: 2025
+    volume: 14
+    issue: 10
+    pages: 1650–1660
+    doi: 10.1002/psp4.70084
+    status: published
+    tags: [ml, pharmacometrics, antimicrobials]
+    source: manual
+  - id: aac-2025-tobramycin-cf
+    authors: [Tong DMH, Hughes MA, Hu J, Pearson JC, Kubiak DW, Dionne BW, Hughes JH]
+    title: >-
+      Comparing two-sample log-linear exposure estimation with Bayesian
+      model-informed precision dosing of tobramycin in adult patients with
+      cystic fibrosis
+    journal: Antimicrob Agents Chemother
+    year: 2025
+    volume: 69
+    pages: e01040-24
+    doi: 10.1128/aac.01040-24
+    status: published
+    tags: [pharmacometrics, collaboration, antimicrobials]
+    source: manual
+  - id: clinpk-2023-peds-vanc
+    authors: [Hughes JH, Tong DMH, Faldasz JD, Frymoyer A, Keizer RJ]
+    title: >-
+      Evaluation of neonatal and paediatric vancomycin pharmacokinetic models and
+      the impact of maturation and serum creatinine covariates in a large
+      multicentre data set
+    journal: Clin Pharmacokinet
+    year: 2023
+    volume: 62
+    pages: 67–76
+    doi: 10.1007/s40262-022-01185-4
+    status: published
+    tags: [pharmacometrics, pediatrics, antimicrobials, rwe]
+    source: manual
+  - id: psp-2023-neutropenia
+    authors: [Hughes JH, Tong DMH, Burns VM, Daly B, Razavi P, Boelens JJ, Goswami S, Keizer RJ]
+    title: >-
+      Clinical decision support for chemotherapy-induced neutropenia using a
+      hybrid pharmacodynamic/machine learning model
+    journal: CPT Pharmacometrics Syst Pharmacol
+    year: 2023
+    volume: 12
+    pages: 1–13
+    doi: 10.1002/psp4.13019
+    status: published
+    tags: [ml, pharmacometrics, oncology, collaboration]
+    featured: true
+    source: manual
+  - id: pharmaceutics-2022-gentamicin
+    authors: [Tong DMH, Hughes JH, Keizer RJ]
+    title: >-
+      Evaluating and improving neonatal gentamicin pharmacokinetic models using
+      aggregated routine clinical care data
+    journal: Pharmaceutics
+    year: 2022
+    volume: 14
+    issue: 10
+    pages: "2089"
+    doi: 10.3390/pharmaceutics14102089
+    status: published
+    tags: [pharmacometrics, pediatrics, antimicrobials, rwe]
+    source: manual
+  - id: cpt-2021-continuous-learning
+    authors: [Hughes JH, Tong DMH, Lucas SS, Faldasz JD, Goswami S, Keizer RJ]
+    title: >-
+      Continuous learning in model-informed precision dosing: a case study in
+      pediatric dosing of vancomycin
+    journal: Clin Pharmacol Ther
+    year: 2021
+    month: 1
+    volume: 109
+    issue: 1
+    pages: 233–242
+    doi: 10.1002/cpt.2088
+    status: published
+    tags: [ml, pharmacometrics, pediatrics, antimicrobials]
+    source: manual
+  - id: tdm-2021-age-adjusted-scr
+    authors: [Tong DMH, Hughes JH, Keizer RJ]
+    title: >-
+      Use of age-adjusted serum creatinine in a vancomycin pharmacokinetic model
+      decreases predictive performance in elderly patients
+    journal: Ther Drug Monit
+    year: 2021
+    month: 2
+    volume: 43
+    issue: 1
+    pages: 139–140
+    doi: 10.1097/FTD.0000000000000819
+    status: published
+    tags: [pharmacometrics, clinical-impact, antimicrobials]
+    source: manual
+  - id: genetepi-2020-power
+    authors: [Tong DMH, Hernandez RD]
+    title: >-
+      Population genetic simulation study of power in association testing across
+      genetic architectures and study designs
+    journal: Genet Epidemiol
+    year: 2020
+    month: 1
+    volume: 44
+    issue: 1
+    pages: 90–103
+    doi: 10.1002/gepi.22264
+    status: published
+    tags: [genomics, statistics]
+    source: manual
+
+# ------------------------------------------------------------ presentations
+presentations:
+  - id: acop-2026-data-cleaning
+    authors: [Tong DMH, Brooks JT, Hughes JH, Keizer RJ]
+    title: >-
+      Towards a structured workflow for semi-automated data cleaning and outlier
+      removal in real-world pharmacometric data
+    type: poster
+    venue: American Conference on Pharmacometrics (ACoP)
+    location: National Harbor, MD, USA
+    date: 2026-10
+    status: given
+    tags: [pharmacometrics, rwe]
+  - id: iatdmct-2026-aminoglycosides
+    authors: [Tong DMH, Faldasz JD, Keizer RJ, Hughes JH]
+    title: >-
+      One model to dose them all: a population pharmacokinetic model for multiple
+      aminoglycosides across the human lifespan
+    type: oral
+    venue: IATDMCT Annual Congress
+    location: Rennes, France
+    date: 2026-09
+    status: given
+    pubs: [jcph-2026-aminoglycosides]
+    tags: [pharmacometrics, antimicrobials, communication]
+  - id: acop-2025-vori
+    authors: [Tong DMH, Bio L, Downes KJ, Sharova A, Hughes JH, Hughes MA]
+    title: >-
+      Early sampling improves voriconazole target attainment in pediatric
+      patients dosed with MIPD tools: a simulation study
+    type: poster
+    venue: American Conference on Pharmacometrics (ACoP)
+    location: Aurora, CO, USA
+    date: 2025-10
+    status: given
+    tags: [pharmacometrics, pediatrics, antimicrobials, collaboration]
+  - id: page-2025-hemodialysis
+    authors: [Tong DMH, Keizer RJ, Hughes JH]
+    title: >-
+      Evaluation of population pharmacokinetic model predictive performance in
+      adults on hemodialysis treated with vancomycin
+    type: poster
+    venue: Population Approach Group Europe (PAGE)
+    location: Thessaloniki, Greece
+    date: 2025-06
+    status: given
+    tags: [pharmacometrics, antimicrobials]
+  - id: iatdmct-2024-tobramycin
+    authors: [Tong DMH, Hughes MA, Hu J, Pearson JC, Kubiak DW, Dionne BW, Hughes JH]
+    title: >-
+      Comparing two-sample log-linear exposure estimation with Bayesian
+      model-informed precision dosing of tobramycin in adult patients with
+      cystic fibrosis
+    type: poster
+    venue: IATDMCT Congress
+    location: Banff, Canada
+    date: 2024-10
+    status: given
+    tags: [pharmacometrics, antimicrobials, collaboration]
+  - id: idweek-2024-vanc-switch
+    authors: [Hughes MA, Tong DMH, Hughes JH]
+    title: >-
+      Improved vancomycin target attainment following a quasi-experimental change
+      in pharmacokinetic model for Bayesian precision dosing
+    type: poster
+    venue: IDWeek
+    location: Los Angeles, CA, USA
+    date: 2024                        # month optional
+    status: given
+    tags: [pharmacometrics, clinical-impact, antimicrobials]
+  - id: acop-2024-cystatin
+    authors: [Tong DMH, Keizer RJ, Hughes JH]
+    title: >-
+      Cystatin C complements but does not exceed serum creatinine as a renal
+      function marker: evidence from vancomycin pharmacokinetic model performance
+      in a clinical context
+    type: poster
+    venue: American Conference on Pharmacometrics (ACoP)
+    location: Phoenix, AZ, USA
+    date: 2024
+    status: given
+    tags: [pharmacometrics, antimicrobials]
+  - id: acop-2023-neutropenia
+    authors: [Tong DMH, Burns VM, Daly R, Razavi P, Boelens JJ, Goswami S, Keizer RJ, Hughes JH]
+    title: >-
+      Prediction of severe neutropenia in chemotherapy patients is significantly
+      improved by using a hybrid pharmacokinetic/pharmacodynamic and machine
+      learning approach
+    type: poster
+    venue: American Conference on Pharmacometrics (ACoP)
+    location: National Harbor, MD, USA
+    date: 2023
+    status: given
+    tags: [ml, pharmacometrics, oncology, collaboration]
+  - id: page-2022-full-bayes
+    authors: [Tong DMH, Hughes JH, Keizer RJ]
+    title: >-
+      Comparing full Bayesian estimation to maximum a posteriori (MAP) Bayesian
+      estimation in three routine clinical care scenarios
+    type: poster
+    venue: Population Approach Group Europe (PAGE)
+    location: Ljubljana, Slovenia
+    date: 2022
+    status: given
+    tags: [pharmacometrics]
+  - id: iatdmct-2022-gentamicin
+    authors: [Tong DMH, Hughes JH, Keizer RJ]
+    title: >-
+      Evaluating and improving neonatal gentamicin pharmacokinetic models using
+      aggregated routine clinical care data
+    type: oral
+    venue: IATDMCT Congress
+    location: Prague, Czechia
+    date: 2022
+    status: given
+    tags: [pharmacometrics, pediatrics, antimicrobials, communication]
+  - id: acop-2021-monitoring
+    authors: [Tong DMH, Burns VM, Hughes JH, Goswami S, Keizer RJ]
+    title: >-
+      Real-time monitoring and analytics software to support drug development
+      decision making
+    type: poster
+    venue: American Conference on Pharmacometrics (ACoP)
+    location: Virtual
+    date: 2021-11
+    status: given
+    tags: [pharmacometrics, industry]
+
+# ---------------------------------------------------------- service & review
+service:
+  - id: clinpmx-sig
+    org: ISoP/ACCP Clinical Pharmacometrics Special Interest Group
+    roles:
+      - { title: Vice-Chair,          start: 2026-01, end: present }
+      - { title: Scientific Secretary, start: 2025-01, end: 2025-12 }
+    tags: [leadership, service]
+    bullets:
+      - text: >-
+          A joint special interest group of the International Society of
+          Pharmacometrics (ISoP) and the American College of Clinical Pharmacology
+          (ACCP), the field's principal professional societies, focused on
+          advancing pharmacometrics in patient care
+      - text: >-
+          Promote application of pharmacometrics to direct patient care and foster
+          an international group of scientists and clinicians across therapeutic
+          areas
+  - id: acop-abstracts
+    org: American Conference on Pharmacometrics (ACoP) Abstract Committee
+    roles:
+      - { title: "Abstract Committee Member, Clinical PMX SIG Representative", start: 2025, end: present }
+    years: [2025, 2026]
+    tags: [leadership, service]
+    bullets:
+      - text: >-
+          Serve as the Clinical Pharmacometrics SIG's representative to the ACoP
+          abstract review committee, evaluating submitted abstracts for scientific
+          merit and selecting recipients of the conference's pharmacometrics
+          trainee awards
+      - text: ACoP is the premier annual scientific meeting in the field
+
+peer_review:
+  # Counts are computed by templates: journals = len(entries), reviews = sum(reviews).
+  intro: >-
+    Invited manuscript reviewer for {n_journals} international peer-reviewed
+    journals across pharmacometrics, antimicrobials, and clinical medicine.
+    {N_reviews} reviews completed or in progress, {year_range}:
+  entries:
+    - { journal: Clinical Pharmacokinetics,                       years: [2026],       reviews: 1 }
+    - { journal: Journal of Pharmacokinetics and Pharmacodynamics, years: [2026],       reviews: 3, note: "pharmacometrics' dedicated methodological journal" }  # 1 + 2 re-reviews
+    - { journal: Clinical Microbiology and Infection,             years: [2026],       reviews: 1, note: official journal of ESCMID }
+    - { journal: Antimicrobial Agents and Chemotherapy,           years: [2026],       reviews: 2, note: American Society for Microbiology }  # 1 + re-review
+    - { journal: Cancer Chemotherapy and Pharmacology,            years: [2026],       reviews: 1 }
+    - { journal: Frontiers in Pharmacology,                       years: [2026],       reviews: 1 }
+    - { journal: Frontiers in Antibiotics,                        years: [2025],       reviews: 1 }
+    - { journal: BMC Medical Research Methodology,                years: [2026],       reviews: 1, status: in-progress }
+    - { journal: Journal of Clinical Pharmacy and Therapeutics,   years: [2025, 2026], reviews: 2 }  # incl. re-review
+    - { journal: Journal of Clinical Medicine,                    years: [2025],       reviews: 1 }
+    - { journal: Therapeutic Drug Monitoring,                     years: [2026],       reviews: 1 }
+    - { journal: European Journal of Drug Metabolism and Pharmacokinetics, years: [2026], reviews: 1 }
+  # Counting rule: every review round counts, re-reviews included.
+
+# ------------------------------------------------------------------- awards
+awards:
+  - id: nserc-pgsd
+    name: Postgraduate Scholarship – Doctoral (PGS D)
+    org: Natural Sciences and Engineering Research Council of Canada (NSERC)
+    year: 2015
+    description: >-
+      National award for academic performance, research potential, and
+      excellence in natural sciences and engineering
+
+# ------------------------------------------------------------------- skills
+skills:
+  - group: Pharmacometrics
+    tags: [pharmacometrics]
+    items: [population PK/PD modeling, model-informed precision dosing, NONMEM, simulation-based trial design]
+  - group: Machine Learning
+    tags: [ml]
+    items: [hybrid ML/PK/PD modeling, LLM agents, XGBoost, deep learning]
+  - group: Programming
+    tags: []
+    items: [R (tidyverse, Shiny), Python (pandas, scikit-learn), Docker, git]
