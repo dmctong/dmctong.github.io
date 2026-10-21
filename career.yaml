@@ -62,8 +62,8 @@ positions:
     org: InsightRX
     location: San Francisco, CA / remote
     roles:
-      - { title: Principal Bioengineer Data Scientist, start: 2025-01, end: present }
-      - { title: Senior Bioengineer Data Scientist,    start: 2020-11, end: 2025-01 }
+      - { title: Principal Bioengineer Data Scientist, start: 2025-02, end: present }
+      - { title: Senior Bioengineer Data Scientist,    start: 2020-11, end: 2025-02 }
       - { title: Bioengineer Data Scientist,           start: 2020-01, end: 2020-11 }
     description: >-
       I lead pharmacometric and machine learning model development for a
