@@ -23,7 +23,7 @@ sections:
   - id: experience
     include_tags: [leadership, clinical-impact, collaboration, industry, ml, llm]
     tag_priority: [leadership, clinical-impact, collaboration, industry]
-    pin_ids: [astra-validation]
+    pin_ids: [astra-product, astra-validation, llm-nonmem-agent]
     max_bullets: 8
     condensed: [insight, ucsf]
   - id: service

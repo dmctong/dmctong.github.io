@@ -30,7 +30,7 @@ person:
   name: Dominic Tong
   credentials: Ph.D.
   citation_name: Tong DMH
-  headline: Principal Bioengineer Data Scientist | Pharmacometrics & Machine Learning
+  headline: Principal Bioengineer Data Scientist | Pharmacometrics, Machine Learning & AI
   location: Seattle, WA
   contact:
     email: dominic.tong.mail@gmail.com
@@ -46,6 +46,8 @@ summary:
     Pharmacometrician and data scientist who pioneered hybrid machine
     learning/population PK/PD methods for precision dosing, with models deployed
     across 1,000+ U.S. hospitals.
+    Now applying agentic AI to model-informed drug development (MIDD) as a
+    domain expert, validation lead, and demo presenter for InsightRX Astra.
     Developed the first population PK model to pool multiple aminoglycosides
     across the human lifespan. Led cross-institutional research with Memorial
     Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
@@ -69,14 +71,21 @@ positions:
       I lead pharmacometric and machine learning model development for a
       precision-dosing platform deployed across 1,000+ U.S. hospitals.
     bullets:
+      - id: astra-product
+        date: 2026
+        tags: [llm, ml, industry, communication]
+        text: >-
+          Shaped InsightRX Astra, an AI-native agentic workflow for clinical
+          pharmacology analyses in pharma drug development, as its clinical
+          pharmacology domain expert: ran user testing, recommended UI and
+          workflow fixes, and presented product demos to pharma clients
       - id: astra-validation
         date: 2026
         tags: [leadership, llm, ml, clinical-impact]
         text: >-
-          Designed the validation approach for InsightRX Astra, an agentic AI
-          clinical pharmacology workflow: human testing plus programmatic
-          validation of nondeterministic outputs, intended to run each release for
-          GxP compliance
+          Designed the validation package for Astra: human testing plus
+          programmatic validation of nondeterministic outputs, intended to run each
+          release for GxP compliance
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
@@ -570,7 +579,7 @@ skills:
     items: [population PK/PD modeling, model-informed precision dosing, simulation-based trial design]
   - group: Machine Learning & AI
     tags: [ml]
-    items: [hybrid ML/PK/PD modeling, LLM agents, agentic AI validation (GxP), deep learning]
+    items: [hybrid ML/PK/PD modeling, agentic AI for MIDD, AI validation (GxP), deep learning]
   - group: Software
     tags: []
     items: [NONMEM, R (tidyverse, Shiny), Python (pandas, scikit-learn, XGBoost), Docker, git]
