@@ -123,6 +123,8 @@ def counts(data):
         "journals": len(reviews),
         "reviews": sum(e.get("reviews", 1) for e in reviews),
         "year_range": f"{years[0]}–{years[-1]}" if len(years) > 1 else str(years[0]),
+        "review_status": "completed or in progress"
+        if any(e.get("status") == "in-progress" for e in reviews) else "completed",
     }
 
 

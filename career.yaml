@@ -53,7 +53,8 @@ summary:
     real-world evidence and hybrid ML/PK modeling into clinical impact.
     Chair-elect of the ISoP/ACCP Clinical Pharmacometrics Special Interest Group.
   # Placeholders are computed at build time so counts never drift:
-  #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range}
+  #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range},
+  #   {review_status} -> "completed" or "completed or in progress" (any status: in-progress)
 
 # --------------------------------------------------------------- experience
 positions:
@@ -534,7 +535,7 @@ peer_review:
   intro: >-
     Invited manuscript reviewer for {n_journals} international peer-reviewed
     journals across pharmacometrics, antimicrobials, and clinical medicine.
-    {N_reviews} reviews completed or in progress, {year_range}:
+    {N_reviews} reviews {review_status}, {year_range}:
   entries:
     - { journal: Clinical Pharmacokinetics,                       years: [2026],       reviews: 1 }
     - { journal: Journal of Pharmacokinetics and Pharmacodynamics, years: [2026],       reviews: 3, note: "pharmacometrics' dedicated methodological journal" }  # 1 + 2 re-reviews
@@ -543,7 +544,7 @@ peer_review:
     - { journal: Cancer Chemotherapy and Pharmacology,            years: [2026],       reviews: 1 }
     - { journal: Frontiers in Pharmacology,                       years: [2026],       reviews: 1 }
     - { journal: Frontiers in Antibiotics,                        years: [2025],       reviews: 1 }
-    - { journal: BMC Medical Research Methodology,                years: [2026],       reviews: 1, status: in-progress }
+    - { journal: BMC Medical Research Methodology,                years: [2026],       reviews: 1 }
     - { journal: Journal of Clinical Pharmacy and Therapeutics,   years: [2025, 2026], reviews: 2 }  # incl. re-review
     - { journal: Journal of Clinical Medicine,                    years: [2025],       reviews: 1 }
     - { journal: Therapeutic Drug Monitoring,                     years: [2026],       reviews: 1 }
