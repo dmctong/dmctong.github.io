@@ -549,7 +549,7 @@ peer_review:
     - { journal: Journal of Clinical Medicine,                    years: [2025],       reviews: 1 }
     - { journal: Therapeutic Drug Monitoring,                     years: [2026],       reviews: 1 }
     - { journal: European Journal of Drug Metabolism and Pharmacokinetics, years: [2026], reviews: 1 }
-    - { journal: Clinical Pharmacology & Therapeutics,              years: [2026],       reviews: 1 }
+    - { journal: Clinical Pharmacology & Therapeutics,             years: [2026],       reviews: 1, note: official journal of ASCPT }
   # Counting rule: every review round counts, re-reviews included.
 
 # ------------------------------------------------------------------- awards
