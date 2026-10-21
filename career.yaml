@@ -63,8 +63,8 @@ positions:
     location: San Francisco, CA / remote
     roles:
       - { title: Principal Bioengineer Data Scientist, start: 2025-01, end: present }
-      - { title: Senior Bioengineer Data Scientist,    start: 2022-02, end: 2025-01 }   # confirmed in COO/HR records
-      - { title: Bioengineer Data Scientist,           start: 2020-01, end: 2022-02 }
+      - { title: Senior Bioengineer Data Scientist,    start: 2020-11, end: 2025-01 }   # Nov 2020; HR record of Feb 2022 is incorrect
+      - { title: Bioengineer Data Scientist,           start: 2020-01, end: 2020-11 }
     description: >-
       I lead pharmacometric and machine learning model development for a
       precision-dosing platform deployed across 1,000+ U.S. hospitals.
