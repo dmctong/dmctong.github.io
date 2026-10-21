@@ -46,8 +46,9 @@ summary:
     Pharmacometrician and data scientist who pioneered hybrid machine
     learning/population PK/PD methods for precision dosing, with models deployed
     across 1,000+ U.S. hospitals.
-    Now applying agentic AI to model-informed drug development (MIDD) as a
-    domain expert, validation lead, and demo presenter for InsightRX Astra.
+    Now applying agentic AI to model-informed drug development (MIDD) as
+    domain expert, validation lead, and demo presenter for an AI-native
+    clinical pharmacology analysis platform built for pharma.
     Developed the first population PK model to pool multiple aminoglycosides
     across the human lifespan. Led cross-institutional research with Memorial
     Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
@@ -75,17 +76,17 @@ positions:
         date: 2026
         tags: [llm, ml, industry, communication]
         text: >-
-          Shaped InsightRX Astra, an AI-native agentic workflow for clinical
-          pharmacology analyses in pharma drug development, as its clinical
-          pharmacology domain expert: ran user testing, recommended UI and
-          workflow fixes, and presented product demos to pharma clients
+          Shaped an AI-native agentic workflow that runs clinical pharmacology
+          analyses for pharma drug development (InsightRX Astra) as its domain
+          expert: ran user testing, recommended UI and workflow fixes, and
+          presented product demos to pharma clients
       - id: astra-validation
         date: 2026
         tags: [leadership, llm, ml, clinical-impact]
         text: >-
-          Designed the validation package for Astra: human testing plus
-          programmatic validation of nondeterministic outputs, intended to run each
-          release for GxP compliance
+          Designed the GxP validation package for this agentic AI platform: human
+          testing plus programmatic validation of nondeterministic outputs,
+          intended to run each release
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
