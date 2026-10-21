@@ -48,6 +48,7 @@ p { margin: 0 0 0.8rem; }
 ul, ol { padding-left: 1.25rem; margin: 0.4rem 0 0; }
 li { margin-bottom: 0.4rem; }
 .refs li { font-size: 0.95rem; }
+.prior { color: var(--muted); font-size: 0.9rem; }
 .note { color: var(--muted); font-style: italic; margin-top: 0.8rem; }
 
 footer { margin-top: 3rem; color: var(--muted); font-size: 0.8rem; }

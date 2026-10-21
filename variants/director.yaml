@@ -11,6 +11,8 @@
 #   pin_ids                     bullets placed first, in this order
 #   max_bullets                 cap per position
 #   condensed                   position ids rendered as a single line, no bullets
+#   prior_roles: footer         only the current title up top; earlier titles in a
+#                               "Previously: ..." line after the bullets
 # Publication/presentation options: select (featured and/or first_author; omit = all),
 #   include_tags, exclude_ids, max_authors, max_items, numbered, show_ids,
 #   note (supports {N_pubs}-style placeholders)
@@ -26,7 +28,9 @@ sections:
     pin_ids: [astra-product, astra-validation, llm-nonmem-agent]
     max_bullets: 8
     condensed: [insight, ucsf]
+    prior_roles: footer
   - id: service
+    prior_roles: footer
     exclude_ids: [sig-about, sig-mission]   # org line already says what the SIG is
     max_bullets: 1
   - id: peer_review

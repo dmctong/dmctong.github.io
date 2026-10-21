@@ -35,7 +35,8 @@ def entries(s):
             f'<span class="when">{escape(l["right"])}</span></div>' for l in e["lines"])
         desc = f'<p>{escape(e["description"])}</p>' if e["description"] else ""
         bullets = "".join(f"<li>{rich(b)}</li>" for b in e["bullets"])
-        parts.append(f'<article class="entry">{lines}{desc}{"<ul>" + bullets + "</ul>" if bullets else ""}</article>')
+        footer = f'<p class="prior">{rich(e["footer"])}</p>' if e.get("footer") else ""
+        parts.append(f'<article class="entry">{lines}{desc}{"<ul>" + bullets + "</ul>" if bullets else ""}{footer}</article>')
     return "".join(parts)
 
 

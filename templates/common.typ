@@ -40,6 +40,9 @@
   }
   if e.description != none { block(above: 0.6em, e.description) }
   if e.bullets.len() > 0 { list(..e.bullets.map(rich)) }
+  if e.at("footer", default: none) != none {
+    block(above: 0.45em, text(size: 0.92em, fill: luma(90), rich(e.footer)))
+  }
 })
 
 #let section(s, gap: 1em, entry-gap: 0.9em) = {

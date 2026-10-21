@@ -53,7 +53,8 @@ CV = {"contacts": PDF_CONTACTS, "sections": [
     "education", {"id": "publications", "numbered": True, "show_ids": True},
     "presentations", "awards"]}
 SITE = {"sections": [
-    "summary", "experience", "service", {"id": "publications", "show_ids": True},
+    "summary", {"id": "experience", "prior_roles": "footer"}, {"id": "service", "prior_roles": "footer"},
+    {"id": "publications", "show_ids": True},
     "presentations", {"id": "peer_review", "style": "list"}, "education", "awards", "skills"],
     # file: build output; publish_as: the name visitors see and download
     "downloads": [{"label": "CV (PDF)", "file": "cv.pdf", "publish_as": "Dominic-Tong-CV.pdf"},
@@ -109,6 +110,12 @@ def fmt_range(start, end):
             return f"{MONTHS[s[1] - 1]} – {MONTHS[e[1] - 1]} {e[0]}"
         return str(e[0])
     return f"{fmt_date(start)} – {fmt_date(end)}"
+
+
+def year_span(start, end):
+    """Years only, for compact role history: "2020–2025", or "2020" within one year."""
+    s, e = parse_date(start), parse_date(end) if end != "present" else (TODAY.year, 0)
+    return str(s[0]) if s[0] == e[0] else f"{s[0]}–{e[0]}"
 
 
 def is_future(d):
@@ -237,16 +244,23 @@ def org_entry(item, opts, bold_org=True):
         span = fmt_range(roles[-1]["start"], roles[0]["end"])
         return {"lines": [{"left": [t(roles[0]["title"], bold=True), t(", " + item["org"])], "right": span}],
                 "description": None, "bullets": []}
+    footer, tenure = None, ""
+    if opts.get("prior_roles") == "footer" and len(roles) > 1:
+        # current title up top; earlier titles become one "Previously" line after the bullets
+        footer = [t("Previously: " + "; ".join(f"{r['title']} ({year_span(r['start'], r['end'])})"
+                                               for r in roles[1:]))]
+        tenure = fmt_range(roles[-1]["start"], roles[0]["end"])  # whole stint, on the org line
+        roles = roles[:1]
     lines = [{"left": [t(r["title"], bold=(i == 0))], "right": fmt_range(r["start"], r["end"])}
              for i, r in enumerate(roles)]
     org = [t(item["org"], bold=bold_org)]
     if item.get("location"):
         org.append(t(" — " + item["location"]))
-    lines.append({"left": org, "right": ""})
+    lines.append({"left": org, "right": tenure})
     bullets = select_bullets(item.get("bullets", []), opts)
     desc = item.get("description") if opts.get("descriptions", True) else None
     return {"lines": lines, "description": clean(desc) if desc else None,
-            "bullets": [[t(clean(b["text"]))] for b in bullets]}
+            "bullets": [[t(clean(b["text"]))] for b in bullets], "footer": footer}
 
 
 def build_section(sid, opts, data, c):
