@@ -52,11 +52,16 @@ def section(s):
     return f'<section id="{s["id"]}"><h2>{escape(s["title"])}</h2>{body}</section>'
 
 
+def published(d):
+    return d.get("publish_as", d["file"])
+
+
 def page(m):
     p = m["person"]
     name = escape(p["name"]) + (f', <span class="cred">{escape(p["credentials"])}</span>' if p["credentials"] else "")
     contacts = " · ".join(rich(c) for c in p["contacts"])
-    downloads = " ".join(f'<a class="btn" href="{escape(d["file"])}">{escape(d["label"])}</a>' for d in m["downloads"])
+    downloads = " ".join(f'<a class="btn" href="{escape(published(d))}">{escape(d["label"])}</a>'
+                         for d in m["downloads"])
     nav = " ".join(f'<a href="#{s["id"]}">{escape(s["title"])}</a>' for s in m["sections"])
     return f"""<!doctype html>
 <html lang="en">
@@ -94,7 +99,7 @@ def main(model_path, out_dir):
         src = model_path.parent / d["file"]
         if not src.exists():
             sys.exit(f"missing download {src}; build PDFs first")
-        shutil.copy(src, out / d["file"])
+        shutil.copy(src, out / published(d))
 
 
 if __name__ == "__main__":

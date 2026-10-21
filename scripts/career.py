@@ -55,8 +55,10 @@ CV = {"contacts": PDF_CONTACTS, "sections": [
 SITE = {"sections": [
     "summary", "experience", "service", {"id": "publications", "show_ids": True},
     "presentations", {"id": "peer_review", "style": "list"}, "education", "awards", "skills"],
-    "downloads": [{"label": "CV (PDF)", "file": "cv.pdf"},
-                  {"label": "Resume (PDF)", "file": "resume-director.pdf"}]}
+    # file: build output; publish_as: the name visitors see and download
+    "downloads": [{"label": "CV (PDF)", "file": "cv.pdf", "publish_as": "Dominic-Tong-CV.pdf"},
+                  {"label": "Resume (PDF)", "file": "resume-director.pdf",
+                   "publish_as": "Dominic-Tong-Resume.pdf"}]}
 
 
 # ------------------------------------------------------------------ helpers
