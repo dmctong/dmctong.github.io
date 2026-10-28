@@ -206,6 +206,14 @@ positions:
           Developed a novel computational model that mimics complex diseases based
           on genetic data and evolutionary parameters to enable GWAS performance
           comparisons
+      - id: extreme-sampling
+        date: ~
+        tags: [genomics, statistics]
+        pubs: [genetepi-2020-power]
+        text: >-
+          Showed that sampling cases and controls from the extremes of a
+          quantitative trait gives rare-variant association tests their highest
+          statistical power
       - id: rare-variant-gap
         date: ~
         tags: [genomics, statistics]
@@ -230,7 +238,16 @@ education:
     date: 2019-06
     notes:
       - Thesis in computational human genetics with work in machine learning and statistics
-    thesis: ~   # TODO 4: thesis title + advisor (Hernandez RD?) for the CV
+    thesis: >-
+      Population genetic simulation study of power in association testing across
+      genetic architectures and study designs
+    advisor: Ryan D. Hernandez
+    # One line tying the degree to current work; shown where the section sets context: true.
+    context: >-
+      My thesis simulated genetic association studies across study designs and
+      disease architectures to find which designs can detect rare disease
+      variants: the same simulate-then-infer approach I now use in
+      pharmacometrics.
   - id: basc
     degree: Bachelor of Applied Science in Engineering Physics (Electrical option)
     institution: University of British Columbia

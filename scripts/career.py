@@ -55,7 +55,7 @@ CV = {"contacts": PDF_CONTACTS, "sections": [
 SITE = {"sections": [
     "summary", {"id": "experience", "prior_roles": "footer"}, {"id": "service", "prior_roles": "footer"},
     {"id": "publications", "show_ids": True},
-    "presentations", {"id": "peer_review", "style": "list"}, "education", "awards", "skills"],
+    "presentations", {"id": "peer_review", "style": "list"}, {"id": "education", "context": True}, "awards", "skills"],
     "intro": "intro",  # summary key for the top of the main page
     # file: build output; publish_as: the name visitors see and download
     "downloads": [{"label": "CV (PDF)", "file": "cv.pdf", "publish_as": "Dominic-Tong-CV.pdf"},
@@ -282,12 +282,16 @@ def build_section(sid, opts, data, c):
     if sid == "education":
         entries = []
         for e in data["education"]:
-            bullets = [[t(clean(n))] for n in e.get("notes", [])][: opts.get("max_bullets")]
+            # A thesis title, where shown, stands in for the degree's notes (which summarize it).
             if e.get("thesis") and opts.get("thesis", True):
-                bullets.append([t("Thesis: "), t(clean(e["thesis"]), italic=True)])
+                advisor = [t(f" (advisor: {e['advisor']})")] if e.get("advisor") else []
+                bullets = [[t("Thesis: "), t(clean(e["thesis"]), italic=True), *advisor]]
+            else:
+                bullets = [[t(clean(n))] for n in e.get("notes", [])][: opts.get("max_bullets")]
+            context = clean(e["context"]) if e.get("context") and opts.get("context") else None
             entries.append({"lines": [{"left": [t(e["degree"], bold=True)], "right": fmt_date(e["date"])},
                                       {"left": [t(e["institution"])], "right": ""}],
-                            "description": None, "bullets": bullets})
+                            "description": context, "bullets": bullets})
         return {**sec, "kind": "entries", "entries": entries}
 
     if sid == "awards":
