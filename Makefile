@@ -1,7 +1,7 @@
 # Edit career.yaml, then `make` (or `make all`). Outputs land in build/.
 #   make resumes   one PDF per variants/*.yaml   -> build/resume-<name>.pdf
 #   make cv        full academic CV              -> build/cv.pdf
-#   make site      static site (+ PDFs)          -> build/site/
+#   make site      static site (+ PDFs)          -> build/site/ (designed page at intro/)
 #   make orcid     merge new ORCID works into career.yaml (then review the diff)
 #   make serve     preview the site at http://localhost:8000
 
@@ -36,7 +36,7 @@ build/resume-%.pdf: build/resume-%.json templates/resume.typ $(TYP)
 build/cv.pdf: build/cv.json templates/cv.typ $(TYP)
 	$(TYPSTC) --input data=/$< templates/cv.typ $@
 
-build/site/index.html: build/site.json site/build.py site/style.css build/cv.pdf $(RESUMES)
+build/site/index.html: build/site.json site/build.py site/style.css site/classic.py site/classic.css build/cv.pdf $(RESUMES)
 	$(PY) site/build.py $< build/site
 
 orcid:

@@ -18,7 +18,7 @@ scripts/orcid_sync.py     merges new ORCID works into career.yaml
 make            # everything → build/
 make resumes    # build/resume-<variant>.pdf (fails if over the variant's max_pages)
 make cv         # build/cv.pdf
-make site       # build/site/ (index.html + PDFs)
+make site       # build/site/ (index.html, designed page at intro/, PDFs)
 make serve      # preview at http://localhost:8000
 make orcid      # pull new publications from ORCID, then review `git diff`
 ```
