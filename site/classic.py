@@ -9,15 +9,15 @@ SITE = "https://dmctong.github.io/"  # absolute URLs for link previews (og:url, 
 
 
 def og(m, path=""):
-    """Open Graph and Twitter tags, so LinkedIn and others show a titled card with the headshot."""
+    """Open Graph and Twitter tags, so LinkedIn and others show a titled card with the og.png image (templates/og.typ)."""
     p = m["person"]
     title = p["name"] + (f', {p["credentials"]}' if p["credentials"] else "")
     desc = m.get("intro") or p["headline"] or ""
     tags = [("og:type", "profile"), ("og:url", SITE + path), ("og:title", title),
-            ("og:description", desc), ("og:image", SITE + "headshot.jpg"),
-            ("og:image:alt", p["name"])]
+            ("og:description", desc), ("og:image", SITE + "og.png"),
+            ("og:image:width", "1200"), ("og:image:height", "627"), ("og:image:alt", title)]
     return "\n".join([*(f'<meta property="{k}" content="{escape(v)}">' for k, v in tags),
-                      '<meta name="twitter:card" content="summary">'])
+                      '<meta name="twitter:card" content="summary_large_image">'])
 
 
 def rich(runs):

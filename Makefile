@@ -21,7 +21,7 @@ all: resumes cv site
 
 resumes: $(RESUMES)
 cv: build/cv.pdf
-site: build/site/index.html
+site: build/site/index.html build/site/og.png
 
 build/resume-%.json: variants/%.yaml $(MODEL)
 	$(PY) scripts/career.py resolve $< -o $@
@@ -38,6 +38,10 @@ build/cv.pdf: build/cv.json templates/cv.typ $(TYP)
 
 build/site/index.html: build/site.json site/build.py site/style.css site/classic.py site/classic.css $(wildcard site/headshot.jpg) build/cv.pdf $(RESUMES)
 	$(PY) site/build.py $< build/site
+
+build/site/og.png: build/site.json templates/og.typ $(wildcard site/headshot.jpg)
+	mkdir -p $(@D)
+	$(TYPSTC) --ppi 72 --input data=/$< templates/og.typ $@
 
 orcid:
 	$(PY) scripts/orcid_sync.py
