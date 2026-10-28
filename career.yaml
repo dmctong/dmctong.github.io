@@ -70,16 +70,19 @@ positions:
       - { title: Bioengineer Data Scientist,           start: 2020-01, end: 2020-11 }
     description: >-
       I lead pharmacometric and machine learning model development for a
-      precision-dosing platform deployed across 1,000+ U.S. hospitals.
+      precision-dosing platform deployed across 1,000+ U.S. hospitals; five
+      of my population PK models are live in the platform.
     bullets:
       - id: astra-product
         date: 2026
         tags: [llm, ml, industry, communication]
+        talks: [ascpt-2025-agentic]   # Apollo-AI = earlier name for Astra
         text: >-
           Shaped an AI-native agentic workflow that runs clinical pharmacology
           analyses for pharma drug development (InsightRX Astra) as its domain
           expert: ran user testing, recommended UI and workflow fixes, and
-          presented product demos to pharma clients
+          presented product demos to 5 pharma clients and 45 participants in
+          an ACoP workshop
       - id: astra-validation
         date: 2026
         tags: [leadership, llm, ml, clinical-impact]
@@ -96,6 +99,14 @@ positions:
           across 90,295 patients in 19 hospital systems, demonstrating that
           pharmacokinetic model selection meaningfully improves vancomycin AUC
           target attainment and reduces AKI rates in precision dosing contexts
+      - id: aminoglycoside-model
+        date: 2026
+        tags: [pharmacometrics, rwe, clinical-impact, antimicrobials, pediatrics]
+        pubs: [jcph-2026-aminoglycosides]
+        text: >-
+          Developed the first population PK model to pool multiple
+          aminoglycosides across the human lifespan, using real-world data from
+          5,659 patients across 130+ sites; now deployed in the platform
       - id: scr-rounding
         date: 2021
         tags: [pharmacometrics, clinical-impact, rwe, antimicrobials]
@@ -113,7 +124,7 @@ positions:
           Developed and validated a novel vancomycin population PK model for
           critically ill patients on continuous renal replacement therapy using
           real-world data from 2,409 patients across 91 sites, outperforming five
-          published models in predictive accuracy
+          published models in predictive accuracy; now deployed in the platform
       - id: msk-neutropenia-ml
         date: 2023
         tags: [leadership, ml, collaboration, oncology, pharmacometrics]
@@ -131,6 +142,19 @@ positions:
           in a pharma client's conditioning regimen; presented recommendations
           directly to clinical decision-makers, resulting in a redesigned trial
           dosing strategy
+      - id: drug-dev-monitoring-etl
+        date: 2021
+        tags: [industry, communication]
+        talks: [acop-2021-monitoring]
+        text: >-
+          Built the analytics ETL pipeline behind real-time monitoring software
+          supporting pharma drug development decisions, and presented the
+          platform at ACoP
+      - id: intern-mentorship
+        date: 2022
+        tags: [leadership]
+        text: >-
+          Mentored a summer intern, now a senior engineer in medical devices
       - id: llm-nonmem-agent
         date: 2025
         tags: [llm, ml, industry, collaboration, pharmacometrics]
@@ -423,6 +447,18 @@ presentations:
     date: 2025-06
     status: given
     tags: [pharmacometrics, antimicrobials]
+  - id: ascpt-2025-agentic
+    authors: [Bergeron M, Goswami S, Tong DMH, Shahin M, Singh R, Corrigan B, Keizer RJ]
+    title: >-
+      Leveraging agentic workflows for PK/PD analysis: enhancing clinical
+      pharmacology decision-making
+    type: poster
+    venue: ASCPT Annual Meeting
+    location: Washington, DC, USA
+    date: 2025-05
+    status: given
+    presenter: Bergeron M
+    tags: [llm, ml, industry, collaboration]
   - id: iatdmct-2024-tobramycin
     authors: [Tong DMH, Hughes MA, Hu J, Pearson JC, Kubiak DW, Dionne BW, Hughes JH]
     title: >-
@@ -564,6 +600,12 @@ peer_review:
 
 # ------------------------------------------------------------------- awards
 awards:
+  - id: ascpt-2025-top-poster
+    name: Top Poster Ribbon
+    org: American Society for Clinical Pharmacology and Therapeutics (ASCPT) Annual Meeting
+    year: 2025
+    description: >-
+      Agentic AI platform for PK/PD analysis, developed with Pfizer
   - id: nserc-pgsd
     name: Postgraduate Scholarship – Doctoral (PGS D)
     org: Natural Sciences and Engineering Research Council of Canada (NSERC)
