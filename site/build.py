@@ -110,7 +110,9 @@ def listing(s):
     if s["id"] in CHIPS:
         return intro + "".join(chips(i) for i in s["items"]) + note
     tag = "ol reversed" if s["numbered"] else "ul"
-    items = "".join(f"<li>{rich(i)}</li>" for i in s["items"])
+    # An item with a single link (a publication's DOI) is clickable as a whole card.
+    items = "".join(f'<li{" class=card-link" if sum(1 for r in i if r.get("link")) == 1 else ""}>{rich(i)}</li>'
+                    for i in s["items"])
     return f'{intro}<{tag} class="refs">{items}</{tag.split()[0]}>{note}'
 
 
