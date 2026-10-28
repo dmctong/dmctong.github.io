@@ -2,7 +2,7 @@
 
 The model is shared by the Typst templates (as JSON) and the site generator:
 
-    {"person": {...}, "generated": "October 2026", "max_pages": 2,
+    {"person": {...}, "generated": "October 2026", "max_pages": 2, "intro": str | None,
      "sections": [{"id", "title", "kind", ...}]}
 
 Section kinds
@@ -56,6 +56,7 @@ SITE = {"sections": [
     "summary", {"id": "experience", "prior_roles": "footer"}, {"id": "service", "prior_roles": "footer"},
     {"id": "publications", "show_ids": True},
     "presentations", {"id": "peer_review", "style": "list"}, "education", "awards", "skills"],
+    "intro": "intro",  # summary key for the top of the intro page
     # file: build output; publish_as: the name visitors see and download
     "downloads": [{"label": "CV (PDF)", "file": "cv.pdf", "publish_as": "Dominic-Tong-CV.pdf"},
                   {"label": "Resume (PDF)", "file": "resume-director.pdf",
@@ -387,8 +388,10 @@ def resolve(config, data):
     for s in config["sections"]:
         sid, opts = (s, {}) if isinstance(s, str) else (s["id"], s)
         sections.append(build_section(sid, opts, data, c))
+    intro = config.get("intro")
     return {"person": person(data, config.get("contacts")), "generated": f"{TODAY.strftime('%B')} {TODAY.year}",
             "max_pages": config.get("max_pages"), "downloads": config.get("downloads", []),
+            "intro": fill(data["summary"][intro], c) if intro else None,
             "sections": sections}
 
 

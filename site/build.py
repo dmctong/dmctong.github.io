@@ -166,7 +166,8 @@ def page(m):
                         for i, d in enumerate(m["downloads"]))
     nav = "".join(f'<a href="#{s["id"]}">{escape(s["title"].split(" and ")[0].split(" & ")[0])}</a>'
                   for s in sections)
-    lead = f'<p class="lead">{rich(summary["text"])}</p>' if summary else ""
+    lead = (f'<p class="lead">{escape(m["intro"])}</p>' if m.get("intro")
+            else f'<p class="lead">{rich(summary["text"])}</p>' if summary else "")
     return f"""<!doctype html>
 <html lang="en">
 <head>

@@ -55,6 +55,11 @@ summary:
     Brigham and Women's Hospital. {N_pubs} peer-reviewed publications translating
     real-world evidence and hybrid ML/PK modeling into clinical impact.
     Chair-elect of the ISoP/ACCP Clinical Pharmacometrics Special Interest Group.
+  # Two sentences for the top of the site's intro page (site/intro/).
+  intro: >-
+    I'm a pharmacometrician and data scientist. I build hybrid machine learning
+    and population PK/PD models for precision dosing, used in 1,000+ U.S.
+    hospitals, and now bring agentic AI to model-informed drug development.
   # Placeholders are computed at build time so counts never drift:
   #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range},
   #   {review_status} -> "completed" or "completed or in progress" (any status: in-progress)

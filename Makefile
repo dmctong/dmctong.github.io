@@ -36,7 +36,7 @@ build/resume-%.pdf: build/resume-%.json templates/resume.typ $(TYP)
 build/cv.pdf: build/cv.json templates/cv.typ $(TYP)
 	$(TYPSTC) --input data=/$< templates/cv.typ $@
 
-build/site/index.html: build/site.json site/build.py site/style.css site/classic.py site/classic.css build/cv.pdf $(RESUMES)
+build/site/index.html: build/site.json site/build.py site/style.css site/classic.py site/classic.css $(wildcard site/headshot.jpg) build/cv.pdf $(RESUMES)
 	$(PY) site/build.py $< build/site
 
 orcid:
