@@ -56,7 +56,7 @@ SITE = {"sections": [
     "summary", {"id": "experience", "prior_roles": "footer"}, {"id": "service", "prior_roles": "footer"},
     {"id": "publications", "show_ids": True},
     "presentations", {"id": "peer_review", "style": "list"}, "education", "awards", "skills"],
-    "intro": "intro",  # summary key for the top of the intro page
+    "intro": "intro",  # summary key for the top of the main page
     # file: build output; publish_as: the name visitors see and download
     "downloads": [{"label": "CV (PDF)", "file": "cv.pdf", "publish_as": "Dominic-Tong-CV.pdf"},
                   {"label": "Resume (PDF)", "file": "resume-director.pdf",

@@ -1,7 +1,7 @@
 # Edit career.yaml, then `make` (or `make all`). Outputs land in build/.
 #   make resumes   one PDF per variants/*.yaml   -> build/resume-<name>.pdf
 #   make cv        full academic CV              -> build/cv.pdf
-#   make site      static site (+ PDFs)          -> build/site/ (designed page at intro/)
+#   make site      static site (+ PDFs)          -> build/site/ (plain page at resume/)
 #   make orcid     merge new ORCID works into career.yaml (then review the diff)
 #   make serve     preview the site at http://localhost:8000
 

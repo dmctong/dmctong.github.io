@@ -1,9 +1,9 @@
 """Render the site model (scripts/career.py resolve site) to a static page.
 
     site/build.py build/site.json build/site
-Writes the plain document-style page (classic.py) as index.html, the designed
-intro page to intro/ (with style.css, and headshot.jpg if present), and copies
-the PDFs listed in `downloads` from the model's directory.
+Writes index.html, copies style.css (and headshot.jpg if present), and copies the
+PDFs listed in `downloads` from the model's directory. Also writes the plain
+document-style page (classic.py) to resume/, the link to send recruiters.
 """
 import json
 import re
@@ -164,7 +164,7 @@ def page(m):
     sections = [s for s in m["sections"] if s is not summary]
     cred = f'<span class="cred">, {escape(p["credentials"])}</span>' if p["credentials"] else ""
     contacts = "".join(contact(c) for c in p["contacts"])
-    downloads = "".join(f'<a class="btn{" primary" if i == 0 else ""}" href="../{escape(published(d))}">{escape(d["label"])}</a>'
+    downloads = "".join(f'<a class="btn{" primary" if i == 0 else ""}" href="{escape(published(d))}">{escape(d["label"])}</a>'
                         for i, d in enumerate(m["downloads"]))
     nav = "".join(f'<a href="#{s["id"]}">{escape(s["title"].split(" and ")[0].split(" & ")[0])}</a>'
                   for s in sections)
@@ -194,7 +194,7 @@ def page(m):
 </div>
 {lead}
 <p class="contacts">{contacts}</p>
-<p class="downloads">{downloads}<a class="btn" href="../">Plain résumé view</a></p>
+<p class="downloads">{downloads}<a class="btn" href="resume/">Plain résumé view</a></p>
 </header>
 <main>
 {"".join(section(s) for s in sections)}
@@ -210,14 +210,13 @@ def main(model_path, out_dir):
     model_path, out = Path(model_path), Path(out_dir)
     m = json.loads(model_path.read_text())
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(classic.page(m))
-    shutil.copy(HERE / "classic.css", out / "classic.css")
-    intro = out / "intro"
-    intro.mkdir(exist_ok=True)
-    (intro / "index.html").write_text(page(m))
-    shutil.copy(HERE / "style.css", intro / "style.css")
+    (out / "index.html").write_text(page(m))
+    shutil.copy(HERE / "style.css", out / "style.css")
     if HEADSHOT.exists():
-        shutil.copy(HEADSHOT, intro / HEADSHOT.name)
+        shutil.copy(HEADSHOT, out / HEADSHOT.name)
+    (out / "resume").mkdir(exist_ok=True)
+    (out / "resume" / "index.html").write_text(classic.page(m))
+    shutil.copy(HERE / "classic.css", out / "resume" / "classic.css")
     for d in m["downloads"]:
         src = model_path.parent / d["file"]
         if not src.exists():

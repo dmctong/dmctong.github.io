@@ -1,7 +1,7 @@
-"""The plain, document-style page: the site's main page.
+"""The plain, document-style page, served at /resume/ for recruiters.
 
-site/build.py writes it from the same model, alongside the designed intro page
-at intro/ that it links to.
+site/build.py writes it from the same model; it links back up to the main
+page's PDFs and to the main page itself.
 """
 from html import escape
 
@@ -47,7 +47,7 @@ def section(s):
 
 
 def published(d):
-    return d.get("publish_as", d["file"])
+    return "../" + d.get("publish_as", d["file"])
 
 
 def page(m):
@@ -72,7 +72,7 @@ def page(m):
 <p class="headline">{escape(p["headline"] or "")}</p>
 <p class="contacts">{contacts}</p>
 <p class="downloads">{downloads}</p>
-<nav>{nav} <a href="intro/">Interactive version</a></nav>
+<nav>{nav} <a href="../">Interactive version</a></nav>
 </header>
 <main>
 {"".join(section(s) for s in m["sections"])}
