@@ -5,6 +5,20 @@ page's PDFs and to the main page itself.
 """
 from html import escape
 
+SITE = "https://dmctong.github.io/"  # absolute URLs for link previews (og:url, og:image)
+
+
+def og(m, path=""):
+    """Open Graph and Twitter tags, so LinkedIn and others show a titled card with the headshot."""
+    p = m["person"]
+    title = p["name"] + (f', {p["credentials"]}' if p["credentials"] else "")
+    desc = m.get("intro") or p["headline"] or ""
+    tags = [("og:type", "profile"), ("og:url", SITE + path), ("og:title", title),
+            ("og:description", desc), ("og:image", SITE + "headshot.jpg"),
+            ("og:image:alt", p["name"])]
+    return "\n".join([*(f'<meta property="{k}" content="{escape(v)}">' for k, v in tags),
+                      '<meta name="twitter:card" content="summary">'])
+
 
 def rich(runs):
     out = []
@@ -64,6 +78,7 @@ def page(m):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(p["name"])}</title>
 <meta name="description" content="{escape(p["headline"] or "")}">
+{og(m, "resume/")}
 <link rel="stylesheet" href="classic.css">
 </head>
 <body>
