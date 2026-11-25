@@ -342,7 +342,8 @@ def build_section(sid, opts, data, c):
         if opts.get("include_tags"):
             pubs = [p for p in pubs if set(opts["include_tags"]) & set(p.get("tags", []))]
         pubs = [p for p in pubs if p["id"] not in opts.get("exclude_ids", [])]
-        pubs = sorted(pubs, key=lambda p: (p["year"], p.get("month", 0)), reverse=True)
+        # accepted papers have no issue month yet; they are the newest in their year
+        pubs = sorted(pubs, key=lambda p: (p["year"], p.get("month", 13 if p.get("status") == "accepted" else 0)), reverse=True)
         items = [cite_publication(p, me, opts.get("max_authors"), opts.get("show_ids", False)) for p in pubs]
         note = [t(fill(opts["note"], c), italic=True)] if opts.get("note") else None
         return {**sec, "kind": "list", "intro": None, "items": items,
