@@ -259,6 +259,16 @@ education:
 # Newest first. `source: manual` entries are never overwritten by ORCID sync;
 # sync matches on DOI, then normalized title.
 publications:
+  - id: pharmacotherapy-2026-lvad-vanc
+    authors: [Tong DMH, Lee T, Weber K, Haskell A]
+    title: >-
+      A population pharmacokinetic model for vancomycin in patients with a left
+      ventricular assist device (LVAD)
+    journal: Pharmacotherapy
+    year: 2026
+    status: accepted
+    tags: [pharmacometrics, antimicrobials, collaboration]
+    source: manual
   - id: jcph-2026-aminoglycosides
     authors: [Tong DMH, Faldasz JD, Keizer RJ, Hughes JH]
     title: >-

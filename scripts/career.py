@@ -125,7 +125,7 @@ def is_future(d):
 
 
 def counts(data):
-    pubs = [p for p in data["publications"] if p.get("status", "published") == "published"]
+    pubs = [p for p in data["publications"] if p.get("status", "published") in ("published", "accepted")]
     reviews = data["peer_review"]["entries"]
     years = sorted({y for e in reviews for y in e["years"]})
     return {
