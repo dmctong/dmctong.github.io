@@ -30,7 +30,7 @@ person:
   name: Dominic Tong
   credentials: Ph.D.
   citation_name: Tong DMH
-  headline: Principal Bioengineer Data Scientist | Pharmacometrics, Machine Learning & AI
+  headline: Principal Data Scientist | Pharmacometrics, Machine Learning & AI
   location: Seattle, WA
   contact:
     email: dominic.tong.mail@gmail.com
@@ -43,23 +43,22 @@ person:
 summary:
   # Variants pick a key; `default` is used when none is specified.
   default: >-
-    Pharmacometrician and data scientist who pioneered hybrid machine
-    learning/population PK/PD methods for precision dosing, with models deployed
-    across 1,000+ U.S. hospitals.
-    Now applying agentic AI to model-informed drug development (MIDD) as
-    domain expert, validation lead, and demo presenter for an AI-native
-    clinical pharmacology analysis platform built for pharma.
+    I build hybrid machine learning and mechanistic models for precision
+    dosing, deployed in 1,000+ U.S. hospitals across ~1.09M treatment courses,
+    and design evaluation frameworks that make agentic AI reliable enough for
+    regulated drug development.
     Developed the first population PK model to pool multiple aminoglycosides
     across the human lifespan. Led cross-institutional research with Memorial
     Sloan Kettering, LPCH Stanford, Children's Hospital of Philadelphia, and
     Brigham and Women's Hospital. {N_pubs} peer-reviewed publications translating
     real-world evidence and hybrid ML/PK modeling into clinical impact.
     Chair-elect of the ISoP/ACCP Clinical Pharmacometrics Special Interest Group.
-  # Two sentences for the top of the site's main page.
+  # Opening line for the top of the site's main page.
   intro: >-
-    I'm a pharmacometrician and data scientist. I build hybrid machine learning
-    and population PK/PD models for precision dosing, used in 1,000+ U.S.
-    hospitals, and now bring agentic AI to model-informed drug development.
+    I build hybrid machine learning and mechanistic models for precision
+    dosing, deployed in 1,000+ U.S. hospitals across ~1.09M treatment courses,
+    and design evaluation frameworks that make agentic AI reliable enough for
+    regulated drug development.
   # Placeholders are computed at build time so counts never drift:
   #   {n_pubs} -> "eleven", {N_pubs} -> "Eleven" (same for journals, reviews), {year_range},
   #   {review_status} -> "completed" or "completed or in progress" (any status: in-progress)
@@ -78,23 +77,39 @@ positions:
       precision-dosing platform deployed across 1,000+ U.S. hospitals; five
       of my population PK models are live in the platform.
     bullets:
-      - id: astra-product
+      - id: astra-eval-framework
         date: 2026
-        tags: [llm, ml, industry, communication]
-        talks: [ascpt-2025-agentic]   # Apollo-AI = earlier name for Astra
+        tags: [leadership, llm, ml, industry, pharmacometrics]
         text: >-
-          Shaped an AI-native agentic workflow that runs clinical pharmacology
-          analyses for pharma drug development (InsightRX Astra) as its domain
-          expert: ran user testing, recommended UI and workflow fixes, and
-          presented product demos to 5 pharma clients and 45 participants in
-          an ACoP workshop
+          Designed and built the release-gating evaluation framework for
+          InsightRX Astra, an LLM-based agentic system that runs clinical
+          pharmacology analyses for pharma drug development: ~25 popPK modeling
+          scenarios, ~10 NCA datasets with full option coverage, and data
+          merging, cleaning and EDA tasks, all driven by realistic user prompts
       - id: astra-validation
         date: 2026
-        tags: [leadership, llm, ml, clinical-impact]
+        tags: [llm, ml, industry, clinical-impact]
         text: >-
-          Designed the GxP validation package for this agentic AI platform: human
-          testing plus programmatic validation of nondeterministic outputs,
-          intended to run each release
+          Built programmatic validation of nondeterministic agent outputs:
+          exact-match checks for NCA, numeric tolerances with 3–5-run variance
+          testing, and expected covariate selection for popPK models, packaged
+          as GxP validation evidence
+      - id: astra-failures
+        date: 2026
+        tags: [llm, ml, pharmacometrics]
+        text: >-
+          Caught failures that single-run testing would have missed, including
+          the agent falsely reporting that user-specified NCA parameters had
+          been applied (surfaced only on repeat runs), and edge-case errors in
+          popPK absorption modeling
+      - id: astra-product
+        date: 2026
+        tags: [leadership, llm, industry, communication]
+        talks: [ascpt-2025-agentic]   # Apollo-AI = earlier name for Astra
+        text: >-
+          Served as scientific lead on Astra product direction: ran user
+          testing with pharma scientists and presented to 5 pharma clients and
+          a 45-participant ACoP workshop
       - id: vanc-model-switch
         date: 2026
         tags: [leadership, pharmacometrics, rwe, clinical-impact, antimicrobials]
