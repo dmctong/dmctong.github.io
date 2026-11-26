@@ -44,7 +44,7 @@ summary:
   # Variants pick a key; `default` is used when none is specified.
   default: >-
     I build hybrid machine learning and mechanistic models for precision
-    dosing, deployed in 1,000+ U.S. hospitals across ~1.09M treatment courses,
+    dosing, deployed in 1,000+ U.S. hospitals across 1M+ treatment courses,
     and design evaluation frameworks that make agentic AI reliable enough for
     regulated drug development.
     Developed the first population PK model to pool multiple aminoglycosides
@@ -56,7 +56,7 @@ summary:
   # Opening line for the top of the site's main page.
   intro: >-
     I build hybrid machine learning and mechanistic models for precision
-    dosing, deployed in 1,000+ U.S. hospitals across ~1.09M treatment courses,
+    dosing, deployed in 1,000+ U.S. hospitals across 1M+ treatment courses,
     and design evaluation frameworks that make agentic AI reliable enough for
     regulated drug development.
   # Placeholders are computed at build time so counts never drift:
